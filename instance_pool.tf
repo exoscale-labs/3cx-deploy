@@ -1,6 +1,6 @@
-data "exoscale_compute_template" "ubuntu" {
+data "exoscale_compute_template" "debian" {
   zone = var.zone
-  name = "Linux Ubuntu 20.04 LTS 64-bit"
+  name = "Linux Debian 10 (Buster) 64-bit"
 }
 
 data "template_file" "setupconfig" {
@@ -31,11 +31,10 @@ data "template_cloudinit_config" "PBX" {
   }
 }
 
-resource "exoscale_instance_pool" "phonesystem" {
+resource "exoscale_compute_instance" "phonesystem" {
   zone = var.zone
   name = "phonesys"
-  size = var.nbr
-  template_id = data.exoscale_compute_template.ubuntu.id
+  template_id = data.exoscale_compute_template.debian.id
   instance_type = var.instance_type
   disk_size = 50
   key_pair = var.ssh_key
