@@ -35,10 +35,9 @@ resource "exoscale_compute_instance" "phonesystem" {
   zone = var.zone
   name = "phonesys"
   template_id = data.exoscale_compute_template.debian.id
-  instance_type = var.instance_type
+  type = var.instance_type
   disk_size = 50
-  key_pair = var.ssh_key
-  instance_prefix = "pbx"
+  ssh_key = var.ssh_key
   security_group_ids = [exoscale_security_group.phonesysg.id]
   user_data = base64encode(data.template_cloudinit_config.PBX.rendered)
 
