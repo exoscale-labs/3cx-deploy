@@ -1,6 +1,6 @@
 #!/bin/bash -e
 mkdir -p /etc/3cxpbx
-cat > /etc/3cxpbx/setupconfig.xml << "<EOF>"
+cat > /etc/3cxpbx/setupconfig.xml <<EOF
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfSerializedQuestion xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 <SetupConfig xmlns:xsd=http://www.w3.org/2001/XMLSchema xmlns:xsi=http://www.w3.org/2001/XMLSchema-instance>
